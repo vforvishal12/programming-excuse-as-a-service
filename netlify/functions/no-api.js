@@ -8,7 +8,7 @@ const app = express();
 app.set('trust proxy', true);
 
 // Make sure to resolve relative to this file's directory
-const reasonsPath = path.join(__dirname, "reasons.json");
+const reasonsPath = require("./reasons.json");
 
 const reasons = JSON.parse(fs.readFileSync(reasonsPath, "utf-8"));
 
