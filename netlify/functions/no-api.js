@@ -8,10 +8,7 @@ const app = express();
 app.set('trust proxy', true);
 
 // Make sure to resolve relative to this file's directory
-const reasonsPath = require("./reasons.json");
-
-const reasons = JSON.parse(fs.readFileSync(reasonsPath, "utf-8"));
-
+const reasons = require("./reasons.json");
 
 // Rate limiter: 120 requests per minute per IP
 const limiter = rateLimit({
