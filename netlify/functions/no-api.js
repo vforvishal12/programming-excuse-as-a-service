@@ -7,10 +7,11 @@ const serverless = require('serverless-http');
 const app = express();
 app.set('trust proxy', true);
 
-// Load reasons from JSON
-const reasonsPath = path.join('reasons.json');
+// Make sure to resolve relative to this file's directory
+const reasonsPath = path.join(__dirname, "reasons.json");
 
-const reasons = JSON.parse(fs.readFileSync(reasonsPath, 'utf-8'));
+const reasons = JSON.parse(fs.readFileSync(reasonsPath, "utf-8"));
+
 
 // Rate limiter: 120 requests per minute per IP
 const limiter = rateLimit({
