@@ -8,7 +8,9 @@ const app = express();
 app.set('trust proxy', true);
 
 // Load reasons from JSON
-const reasonsPath = path.join(__dirname, '..', '..', 'reasons.json');
+const reasonsPath = path.join(process.cwd(), 'reasons.json');
+const reasons = JSON.parse(fs.readFileSync(reasonsPath, 'utf-8'));
+
 const reasons = JSON.parse(fs.readFileSync(reasonsPath, 'utf-8'));
 
 // Rate limiter: 120 requests per minute per IP
