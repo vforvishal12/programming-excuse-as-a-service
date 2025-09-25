@@ -11,8 +11,6 @@ app.set('trust proxy', true);
 const reasonsPath = path.join(process.cwd(), 'reasons.json');
 const reasons = JSON.parse(fs.readFileSync(reasonsPath, 'utf-8'));
 
-const reasons = JSON.parse(fs.readFileSync(reasonsPath, 'utf-8'));
-
 // Rate limiter: 120 requests per minute per IP
 const limiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
